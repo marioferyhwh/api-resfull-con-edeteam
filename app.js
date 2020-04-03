@@ -7,7 +7,7 @@ const express = require('express'),
 
 
 app
-  .set('port',())
+  .set('port',process.env.PORT)
   .use(express.urlencoded({extended:false}))
   .use(express.json())
   .use('/api',router)
