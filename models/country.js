@@ -19,5 +19,5 @@ const mogoose = require('mongoose'),
 
       })
 
-      module.exports = mogoose.models('Country',CountryShema)
+      module.exports = mogoose.model('Country',CountryShema)
 
