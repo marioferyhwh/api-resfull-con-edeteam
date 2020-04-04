@@ -10,7 +10,8 @@ const apiResponse = ((req,res,err,data)=>{
   res.status(200).send({data})
   }
   else{
-    res.status(404).send({message:`no hay datos con esoso parametros`})
+   // res.status(404).send('nada')
+    //res.status(404).send(`no hay datos con esoso parametros`)
 
   }
 })
@@ -21,7 +22,7 @@ const getMarathons = async(req,res) =>{
 postMarathon = async(req,res) =>{
   console.log(req.body)
   let marathon = new Marathon(req.body)
-  await Marathon.save((err,data)=>apiResponse(req,res,err,data))
+  await marathon.save((err,data)=>apiResponse(req,res,err,data))
 },
 getMarathon = async(req,res) =>{
   await Marathon

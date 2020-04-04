@@ -4,16 +4,16 @@ const mongoose = require('mongoose'),
         /** */
         name:{
           type:String,
-          require :[true,'el nombre de requeridos']
+          required :[true,'el nombre de requeridos']
         },
         country:{
           type:Schema.Types.ObjectId,
           ref:'Country',
-          require :[true,'el nombre de requeridos']
+          required :[true,'el nombre de requeridos']
         },
         location:{
           type:String,
-          require :[true,'el nombre de requeridos']
+          required :[true,'el nombre de requeridos']
         },
         altitud:Number,
         race_web:{
