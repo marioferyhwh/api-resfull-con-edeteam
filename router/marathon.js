@@ -11,7 +11,7 @@ const apiResponse = ((req,res,err,data)=>{
   }
   else{
    // res.status(404).send('nada')
-    //res.status(404).send(`no hay datos con esoso parametros`)
+    res.status(404).send(`no hay datos con esoso parametros`)
 
   }
 })
@@ -30,10 +30,13 @@ getMarathon = async(req,res) =>{
   .exec((err,data)=>apiResponse(req,res,err,data))
 },
 putMarathon = async(req,res) =>{
+  //console.log(req.params.id,req.body)
   await Marathon
-  .findByIdAndUpdate(req.params.id,req.params.body,{new:true},(err,data)=>apiResponse(req,res,err,data))
+  .findByIdAndUpdate(req.params.id,req.body,{new:true},(err,data)=>apiResponse(req,res,err,data))
 },
 deleteMarathon = async(req,res) =>{
+  
+  //console.log(req.params.id)
   await Marathon
   .findByIdAndRemove(req.params.id,(err,data)=>apiResponse(req,res,err,data))
 }
