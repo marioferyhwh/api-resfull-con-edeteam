@@ -10,6 +10,10 @@ app
   .set('port',process.env.PORT)
   .use(express.urlencoded({extended:false}))
   .use(express.json())
+  .use((req,res,next)=>{
+    //https://enable-cors.org
+    res.header('Access-Control-Allow-Origin','*')
+  })
   .use('/api',router)
 
   module.exports=app
