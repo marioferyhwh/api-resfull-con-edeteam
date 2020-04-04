@@ -1,5 +1,7 @@
 const express = require('express'),
       config = require('./config'),
+      multer = require('multer'),
+      upload  = multer(),
       app= express(),
       router = require('./router')
 
@@ -8,8 +10,9 @@ const express = require('express'),
 
 app
   .set('port',process.env.PORT)
-  .use(express.urlencoded({extended:false}))
   .use(express.json())
+  .use(express.urlencoded({extended:false}))
+  .use(upload.array())
   .use((req,res,next)=>{
     //https://enable-cors.org
     res.header('Access-Control-Allow-Origin','*')
