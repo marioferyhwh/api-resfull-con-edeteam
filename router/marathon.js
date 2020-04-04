@@ -17,7 +17,7 @@ const apiResponse = ((req,res,err,data)=>{
 })
 
 const getMarathons = async(req,res) =>{
-  await Marathon.find({}).sort({'_id':-1}).exec((err,data)=>apiResponse(req,res,err,data))
+  await Marathon.find({}).populate('country','name code').sort({'_id':-1}).exec((err,data)=>apiResponse(req,res,err,data))
 },
 postMarathon = async(req,res) =>{
   console.log(req.body)
